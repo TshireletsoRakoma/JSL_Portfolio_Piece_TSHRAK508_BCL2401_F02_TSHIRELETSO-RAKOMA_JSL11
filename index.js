@@ -454,33 +454,33 @@ window.addEventListener('beforeunload',function() {
 //     //Initialize the app
 //     init();
 
-//     //Add an event listener to save scroll position when the page is about to unload window.addEventListener('beforeunload,function()
-//     {
-//       localStorage.setItem('scrollPosition',window.scrollY);
-//     });
+     //Add an event listener to save scroll position when the page is about to unload window.addEventListener('beforeunload,function()
+     {
+       localStorage.setItem('scrollPosition',window.scrollY);
+     });
 
-//     //Add an event listener for the theme switch
-//     elements.themeSwitch.Switch.addEventListener('change',function() {
-//       const isLightThemeEnabled = elements.themeSwitch.checked;
+     //Add an event listener for the theme switch
+     elements.themeSwitch.Switch.addEventListener('change',function() {
+       const isLightThemeEnabled = elements.themeSwitch.checked;
 
-//       //Update the local storage with the current theme state
-//       localStorage.setItem('light-theme',isLightThemeEnabled ?'enabled': 'disabled'); 
-//     });
-//   };
+       //Update the local storage with the current theme state
+       localStorage.setItem('light-theme',isLightThemeEnabled ?'enabled': 'disabled'); 
+     });
+   };
 
 
-//   }
+  }
 
 //   // Function to initialize the app
-// function init() {
-//     // Initialize other event listeners
-//     setupEventListeners();
+ function init() {
+     // Initialize other event listeners
+     setupEventListeners();
 
-//     // Retrieve the saved sidebar state from local storage and set it
-//     const showSideBar = localStorage.getItem('showSideBar') === 'true';
-//     toggleSidebar(showSideBar);
+     // Retrieve the saved sidebar state from local storage and set it
+     const showSideBar = localStorage.getItem('showSideBar') === 'true';
+     toggleSidebar(showSideBar);}
 
-    // Check the stored theme state and set it
+// Check the stored theme state and set it
 const isLightThemeEnabled = localStorage.getItem('light-theme') === 'enabled';
 document.body.classList.toggle('light-theme', isLightThemeEnabled);
 
@@ -493,11 +493,12 @@ if (elements && elements.themeSwitch) {
 fetchAndDisplayBoardsAndTasks();
 
 // Restore scroll position
-const savedScrollPosition = localStorage.getItem('scrollPosition');
+let savedScrollPosition = localStorage.getItem('scrollPosition');
 if (savedScrollPosition !== null) {
     window.scrollTo(0, parseInt(savedScrollPosition, 10));
     console.log(`Scroll position restored to: ${savedScrollPosition}`);
 }
+
 
 
 
