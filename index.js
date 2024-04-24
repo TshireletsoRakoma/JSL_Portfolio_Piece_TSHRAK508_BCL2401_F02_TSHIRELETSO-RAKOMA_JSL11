@@ -263,3 +263,16 @@ if (newTask) {
 }
 location.reload();
 }
+
+function toggleSidebar(show) {
+  elements.sideBar.style.display = show ? 'block' : 'none';
+  elements.showSideBarBtn.style.display = show ? 'none' : 'block';
+}
+
+// Get the current mode from local storage or set to default (light)
+const currentMode = localStorage.getItem('mode') || 'light';
+let isLightMode = currentMode === 'light';
+
+// Set the initial SVG source based on the current mode
+let sideLogoDivSrc = isLightMode ? './assets/logo-dark.svg' : './assets/logo-light.svg';
+elements.sideLogoDiv.src = sideLogoDivSrc;
