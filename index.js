@@ -95,3 +95,13 @@ function displayBoards(boards) {
     localStorage.setItem("activeBoard", JSON.stringify(activeBoard))
     styleActiveBoard(activeBoard)
   });
+  boardsContainer.appendChild(boardElement);
+  });
+
+}
+
+
+// Filters tasks corresponding to the board name and displays them on the DOM.
+function filterAndDisplayTasksByBoard(boardName) {
+  const tasks = getTasks(); // Fetch tasks from a simulated local storage function
+  const filteredTasks = tasks.filter(task => task.board === boardName);
