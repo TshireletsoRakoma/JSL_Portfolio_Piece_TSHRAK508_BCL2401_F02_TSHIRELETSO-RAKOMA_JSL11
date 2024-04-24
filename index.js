@@ -115,3 +115,13 @@ function filterAndDisplayTasksByBoard(boardName) {
                           <span class="dot" id="${status}-dot"></span>
                           <h4 class="columnHeader">${status.toUpperCase()}</h4>
                         </div>`;
+
+                        const tasksContainer = document.createElement("div");
+    column.appendChild(tasksContainer);
+
+    filteredTasks.filter(task => task.status === status).forEach(task => { 
+      const taskElement = document.createElement("div");
+      taskElement.classList.add("task-div");
+      taskElement.textContent = task.title;
+      taskElement.setAttribute('data-task-id', task.id);
+
