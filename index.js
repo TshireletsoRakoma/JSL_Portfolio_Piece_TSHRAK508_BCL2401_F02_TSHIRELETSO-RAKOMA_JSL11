@@ -179,3 +179,11 @@ function setupEventListeners() {
   // Cancel editing task event listener
   const cancelEditBtn = document.getElementById('cancel-edit-btn');
   cancelEditBtn.addEventListener('click',() => toggleModal(false, elements.editTaskModal));
+
+  // Cancel adding new task event listener
+  const cancelAddTaskBtn = document.getElementById('cancel-add-task-btn');
+  cancelAddTaskBtn.addEventListener('click', () => {
+    toggleModal(false);
+    elements.filterDiv.style.display = 'none'; // Also hide the filter overlay
+  });
+
