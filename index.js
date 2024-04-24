@@ -418,7 +418,25 @@ document.addEventListener('DOMContentLoaded',function() {
   //Add event listener to save scroll position when the page is about to unload
 window.addEventListener('beforeunload',function() {
   localStorage.setItem('scrollPosition',window.scrollY);
+
 });
 });
+
+function init() {
+  //Initialize other event listeners 
+  setupEventListeners();
+
+  //Retrieves the saved sidebar state from local storage and set it
+  const showSideBar = localStorage.getItem('showSideBar') === 'true';
+  toggleSidebar(showSideBar);
+}
+
+//check the stored theme state set it
+const isLightThemeEnabled = localStorage.getItem('light-theme') === 'enabled';
+//Toggle the light theme class on the documment if the theme is enabled
+document.body.classList.toggle('light-theme',isLightThemeEnabled);
+
+//set the ini
+
 
 
