@@ -29,3 +29,11 @@ const elements = {
     themeSwitch: document.getElementById('switch'),
     hideSideBarBtn: document.getElementById('hide-side-bar-btn'),
     showSideBarBtn: document.getElementById('show-side-bar-btn'),
+     // DOM elements for the Main Layout: Header with board title, add task button
+  header: document.getElementById('header'),
+  headerBoardName: document.getElementById('header-board-name'),
+  dropdownBtn: document.getElementById('dropdownBtn'),
+  addNewTaskBtn: document.getElementById('add-new-task-btn'),
+  editBoardBtn: document.getElementById('edit-board-btn'),
+  deleteBoardBtn: document.getElementById('deleteBoardBtn'),
+
