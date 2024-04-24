@@ -125,3 +125,13 @@ function filterAndDisplayTasksByBoard(boardName) {
       taskElement.textContent = task.title;
       taskElement.setAttribute('data-task-id', task.id);
 
+      // Listen for a click event on each task and open a modal
+      taskElement.addEventListener('click', () => { 
+        openEditTaskModal(task);
+      });
+
+      tasksContainer.appendChild(taskElement);
+    });
+  });
+}
+
