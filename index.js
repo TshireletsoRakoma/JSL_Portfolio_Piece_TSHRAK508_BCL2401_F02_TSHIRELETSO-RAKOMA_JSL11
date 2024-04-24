@@ -319,3 +319,17 @@ document.querySelector('#delete-task-btn').addEventListener('click', () => {
 toggleModal(true, elements.editTaskModal); // Show the edit task modal
 refreshTasksUI();
 };
+
+const saveTaskChanges = async (taskId) => {
+  // Get new user inputs from the elements
+const { value: titleInput } = elements.editTaskTitleInput;
+  const { value: descriptionInput } = elements.editTaskDescInput;
+  const { value: selectStatus } = elements.editSelectStatus;
+
+  // Create an object with the updated task details
+const updatedTask = {
+    title: titleInput,
+    description: descriptionInput,
+    status: selectStatus,
+    board: activeBoard,
+  };
