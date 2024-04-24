@@ -333,3 +333,12 @@ const updatedTask = {
     status: selectStatus,
     board: activeBoard,
   };
+
+  // Update task using a helper function
+await patchTask(taskId, updatedTask);
+
+// Close the modal and refresh the UI to reflect the changes
+location.reload();
+toggleModal(false, elements.editTaskModal);
+refreshTasksUI();
+};
