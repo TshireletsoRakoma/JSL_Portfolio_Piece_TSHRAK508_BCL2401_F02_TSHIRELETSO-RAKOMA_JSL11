@@ -308,3 +308,14 @@ document.querySelector('#save-task-changes-btn').addEventListener('click', () =>
     saveTaskChanges(task.id);
     refreshTasksUI();
   });
+
+   // Add event listener to deleteTaskBtn using element selector
+document.querySelector('#delete-task-btn').addEventListener('click', () => {
+  deleteTask(task.id);
+  toggleModal(false, elements.editTaskModal);
+  refreshTasksUI();
+});
+
+toggleModal(true, elements.editTaskModal); // Show the edit task modal
+refreshTasksUI();
+};
