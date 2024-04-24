@@ -66,3 +66,23 @@ const elements = {
 
 //is an essential part of managing the user's context in the application, allowing the code to track and display the currently active board and its associated tasks.
 let activeBoard = ""
+
+// Extracts unique board names from tasks
+function fetchAndDisplayBoardsAndTasks() {
+  const tasks = getTasks();
+  const boards = [...new Set(tasks.map(task => task.board).filter(Boolean))];
+  displayBoards(boards);
+  if (boards.length > 0)  {
+    const localStorageBoard = JSON.parse(localStorage.getItem("activeBoard"))
+    activeBoard = localStorageBoard ? localStorageBoard :  boards[0]; 
+    elements.headerBoardName.textContent = activeBoard
+    styleActiveBoard(activeBoard)
+    refreshTasksUI();
+  }
+}
+
+// Creates different boards in the DOM
+function displayBoards(boards) {
+  const boardsContainer = document.getElementById("boards-nav-links-div");
+  boardsContainer.innerHTML = ''; // Clears the container
+  boards.forEach(board => {
