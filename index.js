@@ -436,7 +436,22 @@ const isLightThemeEnabled = localStorage.getItem('light-theme') === 'enabled';
 //Toggle the light theme class on the documment if the theme is enabled
 document.body.classList.toggle('light-theme',isLightThemeEnabled);
 
-//set the ini
+//set the initial sate of the theme switch based on the stored theme state
+elements.themeSwitch.checked = isLightThemeEnabled;
+
+//fetch and display boards and tasks
+fetchAndDisplayBoardsAndTasks();
+
+//Restore scroll position 
+const savedScrollPosition = local.getItem('scrollPosition');
+if (savedScrollPosition !== null) {
+  window.scrollTo(0,parseInt(savedScrollPosition,10));
+  console.log(`scroll position restored to: ${savedScrollPosition}`);
+  }
+
+}
+
+//set up event liste
 
 
 
