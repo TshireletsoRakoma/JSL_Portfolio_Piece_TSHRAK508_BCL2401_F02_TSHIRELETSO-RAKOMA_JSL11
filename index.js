@@ -220,3 +220,7 @@ function setupEventListeners() {
 function toggleModal(show, modal = elements.modalWindow) {
   modal.style.display = show ? 'block' : 'none'; 
 }
+
+// Style for the sideBar nav links, margin between the Nav Links Div's
+elements.boardsNavLinksDiv.style.marginTop = "2.5rem";
+elements.boardsNavLinksDiv.style.marginBottom = '17rem';
