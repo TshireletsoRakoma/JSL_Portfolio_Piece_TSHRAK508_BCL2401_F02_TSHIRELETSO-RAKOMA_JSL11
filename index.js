@@ -373,14 +373,26 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 function init() {
-  if(localStorage.getItem('logo')== ".assets/logo-dark.svg"){
+  const darkLogoSrc = localStorage.getItem('logo');
+  if (darkLogoSrc === "./assets/-dark.svg") {
     Image.src = "./assets/logo-light.svg"
+  }
+  //if(localStorage.getItem('logo')== ".assets/logo-dark.svg"){
+    //Image.src = "./assets/logo-light.svg"
   }
   setupEventListeners();
   const showSideBar = localStorage.getItem('showSideBar') === 'true';
   toggleSidebar(showSideBar);
+  //chek light theme from local storage and toggle it
   const isLightThemeEnabled = localStorage.getItem('light-theme') === 'enabled';
   document.body.classList.toggle('light-theme',isLightThemeEnabled);
+
   fetchAndDisplayBoardsAndTasks();
+
+  //Rstore scroll position
+const savedScrollPosition = localstorage.getItem('scrollPosition');
+if (savedScrollPosition !== null) {
+  window.scrollTo(0,parseInt(savedScrollPosition,10));
+  console.log(`scroll position restored to: ${savedScrollPosition}`);
 }
 
