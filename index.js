@@ -324,25 +324,41 @@ function openEditTaskModal(task) {
 
 // Function to save task changes
 function saveTaskChanges(taskId) {
-  //const taskId = elements.editTaskModal.getAttribute('data-task-id');
-  const editTaskTitle = document.getElementById("edit-task-tittle-input").value;
-  const editTaskDescriptionInput = document.getElementById("edit-task-desc-input").value;
-  const status = document.getElementById("edit-select-status").value;
-  //const priority = document.getElementById("priority").value;
+ //Get new user inputs
+ const  title = document.getElementById('edit-task-title-input').value;
+ const desc = document.getElementById("edit-task-desc-input").value;
+ const status = document.getElementById("edit-select-status").value;
 
-   const updatedTask = {
-     title: editTaskTitle,
-     description: editTaskDescriptionInput,
-     status: status,
-     board: activeBoard
-    
-  };
 
-  patchTask(updatedTask,taskId);
+//create an object with the udated task detail
 
-  toggleModal(false, elements.editTaskModal);
-  refreshTasksUI();
+const editedTask ={
+  title : title,
+  description : desc,
+  status : status,
+  
+
 }
+patchTask(taskId,editedTask);
+refreshTasksUI();
+
+}
+
+
+
+//    const updatedTask = {
+//      title: editTaskTitle,
+//      description: editTaskDescriptionInput,
+//      status: status,
+//      board: activeBoard
+    
+//   };
+
+//   patchTask(updatedTask,taskId);
+
+//   toggleModal(false, elements.editTaskModal);
+//   refreshTasksUI();
+// }
 
 // Function to delete a task
 function removeTask(task) {
@@ -394,5 +410,11 @@ const savedScrollPosition = localstorage.getItem('scrollPosition');
 if (savedScrollPosition !== null) {
   window.scrollTo(0,parseInt(savedScrollPosition,10));
   console.log(`scroll position restored to: ${savedScrollPosition}`);
+
 }
+//document.addEventListener('DOMContentLoaded',function()) {
+  init();
+
+  //Add event listener to save scroll position when the page is about to unload
+//}
 
