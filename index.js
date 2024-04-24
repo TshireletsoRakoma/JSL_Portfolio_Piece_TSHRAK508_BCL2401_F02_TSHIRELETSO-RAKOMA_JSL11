@@ -378,3 +378,10 @@ const init = async (
   // Sets the logo path based on the value stored in the local storage, or uses a default value
 const logoPath = localStorage.getItem('sideLogoDiv') || './assets/logo-light.svg';
   elements.sideLogoDiv.src = logoPath;
+
+  // Sets up event listeners for user interactions with the application
+setupEventListeners();
+
+// Toggles the sidebar visibility based on the value stored in local storage
+const showSidebar = localStorage.getItem('showSideBar') === 'true';
+toggleSidebar(showSidebar);
