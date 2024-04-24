@@ -362,3 +362,12 @@ console.log(tasks);
     console.error(`An error occurred when retrieving tasks: ${error}`);
   }
 };
+
+// Calling the function to display the stored tasks
+displayStoredTasks();
+
+/*************************************************************************************************************************************************/
+
+document.addEventListener('DOMContentLoaded', function() {
+  init(); // init is called after the DOM is fully loaded
+});
