@@ -412,9 +412,13 @@ if (savedScrollPosition !== null) {
   console.log(`scroll position restored to: ${savedScrollPosition}`);
 
 }
-//document.addEventListener('DOMContentLoaded',function()) {
+document.addEventListener('DOMContentLoaded',function() {
   init();
 
   //Add event listener to save scroll position when the page is about to unload
-//}
+window.addEventListener('beforeunload',function() {
+  localStorage.setItem('scrollPosition',window.scrollY);
+});
+});
+
 
