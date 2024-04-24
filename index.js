@@ -85,4 +85,13 @@ function fetchAndDisplayBoardsAndTasks() {
 function displayBoards(boards) {
   const boardsContainer = document.getElementById("boards-nav-links-div");
   boardsContainer.innerHTML = ''; // Clears the container
-  boards.forEach(board => {
+  boards.forEach(board => {const boardElement = document.createElement("button");
+  boardElement.textContent = board;
+  boardElement.classList.add("board-btn");
+  boardElement.addEventListener('click', () => { 
+    elements.headerBoardName.textContent = board;
+    filterAndDisplayTasksByBoard(board);
+    activeBoard = board //assigns active board
+    localStorage.setItem("activeBoard", JSON.stringify(activeBoard))
+    styleActiveBoard(activeBoard)
+  });
