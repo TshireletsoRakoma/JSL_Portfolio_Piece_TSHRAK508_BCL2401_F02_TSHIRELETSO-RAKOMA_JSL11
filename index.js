@@ -224,3 +224,31 @@ function toggleModal(show, modal = elements.modalWindow) {
 // Style for the sideBar nav links, margin between the Nav Links Div's
 elements.boardsNavLinksDiv.style.marginTop = "2.5rem";
 elements.boardsNavLinksDiv.style.marginBottom = '17rem';
+
+//*************************************************************************************************************************************************
+ /* //COMPLETE FUNCTION CODE
+ * **********************************************************************************************************************************************/
+
+// Prevents the default behavior of the event, such as form submission or page refresh
+function addTask(event) {
+  event.preventDefault(); 
+
+  const task_id = JSON.parse(localStorage.getItem('id'));// Gets the next available task ID from local storage and assigns it to the task object
+    const titleInput = elements.titleInput.value;// Gets the value from the title input field and assigns it to the task object
+    const descriptionInput = elements.descInput.value;// Gets the value from the description input field and assigns it to the task object
+    const selectStatus = elements.selectStatus.value;// Gets the value from the status select field and assigns it to the task object
+
+    //Assigning user input to the task object
+// Creates a task object to store the details of a new task
+const task = {
+  // Assigns a unique identifier to the task (fetched from local storage)
+id: task_id,
+  // Sets the task title using the value entered in the title input field
+title: titleInput,
+  // Sets the task description using the value entered in the description input field
+description: descriptionInput,
+  // Sets the task status using the value selected in the status dropdown
+status: selectStatus,
+  // Sets the board for the task using the activeBoard variable, which should store the currently selected board
+board: activeBoard,
+};
