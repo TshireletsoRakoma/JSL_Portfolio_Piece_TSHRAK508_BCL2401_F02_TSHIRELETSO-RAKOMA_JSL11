@@ -371,3 +371,10 @@ displayStoredTasks();
 document.addEventListener('DOMContentLoaded', function() {
   init(); // init is called after the DOM is fully loaded
 });
+
+// Defines an asynchronous initialization function that takes care of various setup tasks
+const init = async (
+) => {
+  // Sets the logo path based on the value stored in the local storage, or uses a default value
+const logoPath = localStorage.getItem('sideLogoDiv') || './assets/logo-light.svg';
+  elements.sideLogoDiv.src = logoPath;
