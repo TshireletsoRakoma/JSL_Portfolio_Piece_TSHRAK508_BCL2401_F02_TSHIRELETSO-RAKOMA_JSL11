@@ -15,3 +15,10 @@ function initializeData() {
     console.log('Data already exists in localStorage');
   }
 }
+initializeData();
+
+// Getting the elements from the DOM
+const elements = {
+
+  // DOM elements for the Navigation Sidebar
+    headerBoardName: document.getElementById("header-board-name"),ad
