@@ -276,3 +276,8 @@ let isLightMode = currentMode === 'light';
 // Set the initial SVG source based on the current mode
 let sideLogoDivSrc = isLightMode ? './assets/logo-dark.svg' : './assets/logo-light.svg';
 elements.sideLogoDiv.src = sideLogoDivSrc;
+
+const toggleTheme = (
+) => {
+  const isLightTheme = document.body.classList.contains('light-theme');
+
