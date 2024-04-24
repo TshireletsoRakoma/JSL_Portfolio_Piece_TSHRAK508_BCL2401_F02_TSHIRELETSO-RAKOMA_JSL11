@@ -297,3 +297,14 @@ localStorage.setItem('mode', isLightMode ? 'light' : 'dark');
 localStorage.setItem('sideLogoDiv', sideLogoDivSrc);
 };
 
+const openEditTaskModal = async (task) => {
+  // Set task details in modal inputs
+elements.editTaskTitleInput.value = task.title;
+  elements.editTaskDescInput.value = task.description;
+  elements.editSelectStatus.value = task.status;
+
+  // Add event listener to saveChangesBtn using element selector
+document.querySelector('#save-task-changes-btn').addEventListener('click', () => {
+    saveTaskChanges(task.id);
+    refreshTasksUI();
+  });
