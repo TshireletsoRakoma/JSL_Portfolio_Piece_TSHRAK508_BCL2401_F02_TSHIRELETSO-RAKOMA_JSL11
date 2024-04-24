@@ -286,3 +286,14 @@ const toggleTheme = (
   // Toggle the mode
 isLightMode = !isLightMode;
 
+// Set sideLogoDivSrc based on isLightMode
+sideLogoDivSrc = isLightMode ? './assets/logo-dark.svg' : './assets/logo-light.svg';
+  elements.sideLogoDiv.src = sideLogoDivSrc;
+
+  // Store the selected mode in localStorage
+localStorage.setItem('mode', isLightMode ? 'light' : 'dark');
+
+  // Store the selected SVG source in localStorage
+localStorage.setItem('sideLogoDiv', sideLogoDivSrc);
+};
+
