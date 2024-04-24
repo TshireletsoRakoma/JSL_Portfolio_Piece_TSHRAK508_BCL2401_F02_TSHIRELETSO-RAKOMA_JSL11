@@ -167,3 +167,15 @@ function addTaskToUI(task) {
     column.appendChild(tasksContainer);
   }
 
+  const taskElement = document.createElement('div');
+  taskElement.className = 'task-div';
+  taskElement.textContent = task.title;
+  taskElement.setAttribute('data-task-id', task.id);
+  
+  tasksContainer.appendChild(taskElement); 
+}
+
+function setupEventListeners() {
+  // Cancel editing task event listener
+  const cancelEditBtn = document.getElementById('cancel-edit-btn');
+  cancelEditBtn.addEventListener('click',() => toggleModal(false, elements.editTaskModal));
