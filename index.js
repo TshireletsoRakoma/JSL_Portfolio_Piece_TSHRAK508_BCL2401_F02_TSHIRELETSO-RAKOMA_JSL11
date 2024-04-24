@@ -135,3 +135,20 @@ function filterAndDisplayTasksByBoard(boardName) {
   });
 }
 
+function refreshTasksUI() {
+  filterAndDisplayTasksByBoard(activeBoard);
+}
+
+// Styled the active board by adding an active class
+function styleActiveBoard(boardName) {
+  document.querySelectorAll('.board-btn').forEach(btn => { 
+    
+    if(btn.textContent === boardName) {
+      btn.classList.add('active') 
+    }
+    else {
+      btn.classList.remove('active'); 
+    }
+  });
+}
+
