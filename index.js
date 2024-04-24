@@ -41,3 +41,10 @@ const elements = {
   columnDivs: document.querySelectorAll('.column-div'),
   tasksContainers: document.querySelectorAll('.tasks-container'),
 
+   // DOM elements for New Task Modal: Form for adding a new task
+   modalWindow: document.getElementById('new-task-modal-window'),
+   titleInput: document.getElementById('title-input'),
+   descInput: document.getElementById('desc-input'),
+   selectStatus: document.getElementById('select-status'),
+   createNewTaskBtn: document.getElementById('add-new-task-btn'),
+   cancelAddTaskBtn: document.getElementById('cancel-add-task-btn'),
