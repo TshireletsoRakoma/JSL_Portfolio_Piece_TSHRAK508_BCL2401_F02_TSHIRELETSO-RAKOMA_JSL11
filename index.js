@@ -342,3 +342,23 @@ location.reload();
 toggleModal(false, elements.editTaskModal);
 refreshTasksUI();
 };
+
+const displayStoredTasks = (
+) => {
+  try {
+    // Retrieving the tasks from localStorage
+const storedTasks = localStorage.getItem('tasks');
+
+    if (storedTasks) {
+      // Parsing the JSON string to an array of tasks
+const tasks = JSON.parse(storedTasks);
+
+      // Logging the tasks to the console
+console.log(tasks);
+    } else {
+      console.log('No tasks stored in localStorage.');
+    }
+  } catch (error) {
+    console.error(`An error occurred when retrieving tasks: ${error}`);
+  }
+};
