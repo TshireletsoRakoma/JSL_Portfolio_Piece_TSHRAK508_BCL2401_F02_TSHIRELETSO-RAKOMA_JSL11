@@ -280,4 +280,9 @@ elements.sideLogoDiv.src = sideLogoDivSrc;
 const toggleTheme = (
 ) => {
   const isLightTheme = document.body.classList.contains('light-theme');
+  document.body.classList.toggle('light-theme');
+  localStorage.setItem('light-theme', !isLightTheme ? 'enabled' : 'disabled');
+
+  // Toggle the mode
+isLightMode = !isLightMode;
 
