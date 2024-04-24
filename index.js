@@ -63,3 +63,6 @@ const elements = {
   //filter div improves the user experience by providing visual focus on the modal window and preventing interactions with elements behind the modal
   filterDiv: document.getElementById('filterDiv'),
 }
+
+//is an essential part of managing the user's context in the application, allowing the code to track and display the currently active board and its associated tasks.
+let activeBoard = ""
