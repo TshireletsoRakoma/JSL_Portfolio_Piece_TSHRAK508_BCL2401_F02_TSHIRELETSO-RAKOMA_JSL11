@@ -58,3 +58,8 @@ const elements = {
   saveTaskChangesBtn: document.getElementById('save-task-changes-btn'),
   cancelEditBtn: document.getElementById('cancel-edit-btn'),
   deleteTaskBtn: document.getElementById('delete-task-btn'),
+
+  // Filter Div 
+  //filter div improves the user experience by providing visual focus on the modal window and preventing interactions with elements behind the modal
+  filterDiv: document.getElementById('filterDiv'),
+}
