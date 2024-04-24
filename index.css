@@ -1421,4 +1421,5 @@ input:checked + #label-checkbox-theme:after {
   .modal-window {
     width: 30%;
   }
+  
 }
