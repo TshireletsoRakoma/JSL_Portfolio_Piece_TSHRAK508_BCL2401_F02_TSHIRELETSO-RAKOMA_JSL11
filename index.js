@@ -208,3 +208,10 @@ function setupEventListeners() {
      toggleModal(true);
      elements.filterDiv.style.display = 'block'; // Show the filter overlay
    });  
+
+   elements.modalWindow.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    await addTask(event);
+  });
+  
+}
