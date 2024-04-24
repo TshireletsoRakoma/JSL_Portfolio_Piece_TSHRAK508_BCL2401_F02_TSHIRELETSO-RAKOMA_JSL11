@@ -252,3 +252,14 @@ status: selectStatus,
   // Sets the board for the task using the activeBoard variable, which should store the currently selected board
 board: activeBoard,
 };
+
+const newTask = createNewTask(task);
+if (newTask) {
+  addTaskToUI(newTask);
+  toggleModal(false);
+  elements.filterDiv.style.display = 'none'; // Also hide the filter overlay
+  event.target.reset();
+  refreshTasksUI();
+}
+location.reload();
+}
