@@ -192,3 +192,19 @@ function setupEventListeners() {
     toggleModal(false); 
     elements.filterDiv.style.display = 'none'; // Also hide the filter overlay
   });
+
+   // Show sidebar event listener
+   elements.hideSideBarBtn.addEventListener('click', () => toggleSidebar(false));
+   elements.showSideBarBtn.addEventListener('click', () => toggleSidebar(true));
+ 
+   // Show the button
+   elements.showSideBarBtn.style.display = 'block';
+ 
+   // Theme switch event listener
+   elements.themeSwitch.addEventListener('change', toggleTheme);
+ 
+   // Show Add New Task Modal event listener
+   elements.createNewTaskBtn.addEventListener('click', () => {
+     toggleModal(true);
+     elements.filterDiv.style.display = 'block'; // Show the filter overlay
+   });  
