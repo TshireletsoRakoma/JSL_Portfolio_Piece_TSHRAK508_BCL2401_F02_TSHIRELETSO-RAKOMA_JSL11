@@ -385,3 +385,13 @@ setupEventListeners();
 // Toggles the sidebar visibility based on the value stored in local storage
 const showSidebar = localStorage.getItem('showSideBar') === 'true';
 toggleSidebar(showSidebar);
+
+ // Toggles the light theme based on the value stored in local storage
+ const isLightTheme = localStorage.getItem('light-theme') === 'enabled';
+ elements.themeSwitch.checked = isLightTheme;
+ document.body.classList.toggle('light-theme', isLightTheme);
+
+ // Fetches and displays boards and tasks on the initial page load
+await fetchAndDisplayBoardsAndTasks();
+};
+
