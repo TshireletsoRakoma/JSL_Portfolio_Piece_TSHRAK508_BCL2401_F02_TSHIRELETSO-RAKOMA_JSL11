@@ -13,6 +13,7 @@ import { initialData } from './initialData.js';
 const Image = document.getElementById('logo');
 const elements = {
   headerBoardName: document.getElementById('header-board-name'),
+  
   boardsNavLinksDiv: document.getElementById('boards-nav-links-div'),
   columnDivs: document.querySelectorAll('.column-div'),
   hideSideBarBtn: document.getElementById('hide-side-bar-btn'),
@@ -36,6 +37,7 @@ const elements = {
   editTaskStatusInput: document.getElementById('edit-task-status'),
   editTaskBoardInput: document.getElementById('edit-task-board'),
 };
+elements.showSideBarBtn.style.display = "block";
 
 // Initialize data in local storage
 function initializeData() {
@@ -422,36 +424,127 @@ window.addEventListener('beforeunload',function() {
 });
 });
 
-function init() {
-  //Initialize other event listeners 
-  setupEventListeners();
+//  function init() {
+// //   //Initialize other event listeners 
+//    setupEventListeners();
 
-  //Retrieves the saved sidebar state from local storage and set it
-  const showSideBar = localStorage.getItem('showSideBar') === 'true';
-  toggleSidebar(showSideBar);
+//    //Retrieves the saved sidebar state from local storage and set it
+//    const showSideBar = localStorage.getItem('showSideBar') === 'true';
+//    toggleSidebar(showSideBar);
+// }
+
+//  //check the stored theme state set it
+//    const isLightThemeEnabled = localStorage.getItem('light-theme') === 'enabled';
+//    document.body.classList.toggle('light-theme',isLightThemeEnabled);
+//    themeSwitch.checked = isLightThemeEnabled; //set the initial state of the theme
+
+//    fetchAndDisplayBoardsAndTasks();
+
+//    //Restore scroll postion
+//    const savedScrollPosition = localStorage.getItem('scrollPosition');
+//    if (savedScrollPosition !== null) {
+//     window.scrollTo(0, parseInt(savedScrollPosition, 10));
+//     console.log(`Scroll post restored to: ${savedScrollPosition}`);
+
+//    }
+
+//   {
+//   //set up event listeners for DOM loaded
+//   document.addEventListener('DOMContentLoaded',function)(
+//     //Initialize the app
+//     init();
+
+//     //Add an event listener to save scroll position when the page is about to unload window.addEventListener('beforeunload,function()
+//     {
+//       localStorage.setItem('scrollPosition',window.scrollY);
+//     });
+
+//     //Add an event listener for the theme switch
+//     elements.themeSwitch.Switch.addEventListener('change',function() {
+//       const isLightThemeEnabled = elements.themeSwitch.checked;
+
+//       //Update the local storage with the current theme state
+//       localStorage.setItem('light-theme',isLightThemeEnabled ?'enabled': 'disabled'); 
+//     });
+//   };
+
+
+//   }
+
+//   // Function to initialize the app
+// function init() {
+//     // Initialize other event listeners
+//     setupEventListeners();
+
+//     // Retrieve the saved sidebar state from local storage and set it
+//     const showSideBar = localStorage.getItem('showSideBar') === 'true';
+//     toggleSidebar(showSideBar);
+
+    // Check the stored theme state and set it
+const isLightThemeEnabled = localStorage.getItem('light-theme') === 'enabled';
+document.body.classList.toggle('light-theme', isLightThemeEnabled);
+
+// Ensure 'elements' object is accessible and contains the 'themeSwitch' property
+if (elements && elements.themeSwitch) {
+    elements.themeSwitch.checked = isLightThemeEnabled; // Set the initial state of the theme switch
 }
 
-//check the stored theme state set it
-const isLightThemeEnabled = localStorage.getItem('light-theme') === 'enabled';
-//Toggle the light theme class on the documment if the theme is enabled
-document.body.classList.toggle('light-theme',isLightThemeEnabled);
-
-//set the initial sate of the theme switch based on the stored theme state
-elements.themeSwitch.checked = isLightThemeEnabled;
-
-//fetch and display boards and tasks
+// Fetch and display boards and tasks
 fetchAndDisplayBoardsAndTasks();
 
-//Restore scroll position 
-const savedScrollPosition = local.getItem('scrollPosition');
+// Restore scroll position
+const savedScrollPosition = localStorage.getItem('scrollPosition');
 if (savedScrollPosition !== null) {
-  window.scrollTo(0,parseInt(savedScrollPosition,10));
-  console.log(`scroll position restored to: ${savedScrollPosition}`);
-  }
-
+    window.scrollTo(0, parseInt(savedScrollPosition, 10));
+    console.log(`Scroll position restored to: ${savedScrollPosition}`);
 }
 
-//set up event liste
+
+
+ // Set up event listeners for DOM loaded
+ document.addEventListener('DOMContentLoaded', function() {
+     // Initialize the app
+     init();
+
+     // Add an event listener to save scroll position when the page is about to unload
+     window.addEventListener('beforeunload', function() {
+         localStorage.setItem('scrollPosition', window.scrollY);
+     });
+
+     // Add an event listener for the theme switch
+     themeSwitch.addEventListener('change', function() {
+           const isLightThemeEnabled = themeSwitch.checked;
+
+         // Update the local storage with the current theme state
+         localStorage.setItem('light-theme', isLightThemeEnabled ? 'enabled' : 'disabled');
+
+         // Toggle the light theme class on the body element
+         document.body.classList.toggle('light-theme', isLightThemeEnabled);
+     });
+ });
+
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   //Toggle the light theme class on the documment if the theme is enabled
+   document.body.classList.toggle('light-theme',isLightThemeEnabled);
+
+// //set the initial state of the theme based on the stored state element.themeSwitch.checked=isLightThemeEnabled;
+
+// // Fetch and display boards and taks 
+// 
+
 
 
 
